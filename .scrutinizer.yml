@@ -12,5 +12,6 @@ build:
                 command: 'istanbul cover --report clover test.js'
                 command: 'npm run test-scrutinizer'
                 coverage:
-                    file: 'build/coverage/clover.xml'
+                    # file: 'build/coverage/clover.xml'
+                    file: 'coverage/index.html'
                     format: 'clover'
