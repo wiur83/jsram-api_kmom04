@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "nyc --reporter=html --reporter=text --reporter=clover mocha 'test/reports/report_integration.js'",
-    "test-scrutinizer": "nyc --all --reporter=clover mocha 'test/reports/report_integration.js'",
+    "test-scrutinizer": "nyc --all mocha 'test/reports/report_integration.js'",
     "start": "node app.js",
     "stop": "taskkill -F -IM node.exe",
     "production": "NODE_ENV='production' node app.js",
@@ -36,6 +36,7 @@
     "coveralls": "^3.0.2",
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.19.0",
+    "istanbul": "^0.4.5",
     "javascript-style-guide": "^0.9.10",
     "mocha": "^5.2.0",
     "nodemon": "^2.0.2",
