@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1584054993086" clover="3.2.0">
-  <project timestamp="1584054993086" name="All files">
+<coverage generated="1584056253522" clover="3.2.0">
+  <project timestamp="1584056253522" name="All files">
     <metrics statements="157" coveredstatements="54" conditionals="26" coveredconditionals="3" methods="35" coveredmethods="4" elements="218" coveredelements="61" complexity="0" loc="157" ncloc="157" packages="3" files="4" classes="4"/>
-    <package name="API - Copy">
+    <package name="API">
       <metrics statements="92" coveredstatements="30" conditionals="12" coveredconditionals="1" methods="18" coveredmethods="1"/>
-      <file name="app.js" path="C:\cygwin64\home\hemdatorn\dbwebb-kurser\jsramverk\kmom04\API - Copy\app.js">
+      <file name="app.js" path="C:\cygwin64\home\hemdatorn\dbwebb-kurser\jsramverk\kmom04\API\app.js">
         <metrics statements="92" coveredstatements="30" conditionals="12" coveredconditionals="1" methods="18" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -100,9 +100,9 @@
         <line num="344" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="API - Copy.db">
+    <package name="API.db">
       <metrics statements="5" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
-      <file name="database.js" path="C:\cygwin64\home\hemdatorn\dbwebb-kurser\jsramverk\kmom04\API - Copy\db\database.js">
+      <file name="database.js" path="C:\cygwin64\home\hemdatorn\dbwebb-kurser\jsramverk\kmom04\API\db\database.js">
         <metrics statements="5" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -111,9 +111,9 @@
         <line num="8" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="API - Copy.routes">
+    <package name="API.routes">
       <metrics statements="60" coveredstatements="20" conditionals="12" coveredconditionals="1" methods="16" coveredmethods="2"/>
-      <file name="hello.js" path="C:\cygwin64\home\hemdatorn\dbwebb-kurser\jsramverk\kmom04\API - Copy\routes\hello.js">
+      <file name="hello.js" path="C:\cygwin64\home\hemdatorn\dbwebb-kurser\jsramverk\kmom04\API\routes\hello.js">
         <metrics statements="11" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -127,7 +127,7 @@
         <line num="31" count="0" type="stmt"/>
         <line num="34" count="1" type="stmt"/>
       </file>
-      <file name="reports.js" path="C:\cygwin64\home\hemdatorn\dbwebb-kurser\jsramverk\kmom04\API - Copy\routes\reports.js">
+      <file name="reports.js" path="C:\cygwin64\home\hemdatorn\dbwebb-kurser\jsramverk\kmom04\API\routes\reports.js">
         <metrics statements="49" coveredstatements="14" conditionals="12" coveredconditionals="1" methods="13" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
