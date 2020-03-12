@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "nyc --reporter=html --reporter=text mocha 'test/reports/report_integration.js'",
+    "test-scrutinizer": "nyc --all --reporter=clover mocha 'test/reports/report_integration.js'",
     "start": "node app.js",
     "stop": "taskkill -F -IM node.exe",
     "production": "NODE_ENV='production' node app.js",
