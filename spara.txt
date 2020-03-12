@@ -1,0 +1,2 @@
+"pretest": "bash db/reset_test_db.bash",
+"posttest": "npm run eslint",
