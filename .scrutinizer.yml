@@ -14,4 +14,4 @@ build:
                 coverage:
                     # file: 'build/coverage/clover.xml'
                     file: 'coverage/index.html'
-                    format: 'clover'
+                    format: 'html'
