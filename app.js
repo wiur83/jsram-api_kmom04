@@ -50,12 +50,34 @@ app.use('/hello', hello);
 
 
 
-
-
 var globalToken = "";
 
+//****Skapa test ******
+//Startsida
+app.get('/', function(req, res, next) {
+    const data = {
+            title: 'Me',
+            body: 'Hejsan! Jag har valt REACT som mitt ramverk och tror det kommer bli en rolig samt lärorik upplevelse!'
+    };
 
-// Add a route
+    res.json(data);
+});
+
+
+//****Skapa test ******
+//Testar redirect route
+app.get('/test_redirect', function(req, res) {
+  var string = encodeURIComponent('something that would break');
+
+  res.redirect('/reports/week/1');
+});
+
+
+
+
+
+//****Skapa test ******
+//Reggar användare
 app.post("/register", (req, res) => {
   console.log("----------------");
 	console.log("*create_user PSOT2*");
@@ -88,14 +110,9 @@ app.post("/register", (req, res) => {
 });
 
 
-
-// Add a route
+//****Skapa test ******
+//login
 app.post("/login", (req, res) => {
-  // console.log("----------------");
-	// console.log("*login_user PSOT2*");
-  // console.log(req.body);
-
-
 	db.each("SELECT COUNT(*) AS total FROM users WHERE (email, password) = (?,?)",
   req.body.email,req.body.password,(err, row) => {
 	if (row.total == 1) {
@@ -124,15 +141,14 @@ app.post("/login", (req, res) => {
 
 
 
-
-// Add a route
+//****Skapa test ******
+//testar användare
 app.get("/login/test_user", verifyToken, (req, res) => {
-	console.log("----------------");
 	console.log("*testing.....*");
   console.log(req.token);
 	console.log(globalToken);
+  console.log("*testing.....*");
 
-  console.log("----------------");
 	jwt.verify(req.token, "secretkeye8600f5a58e83c4398e83d582137e83798789864276c35dff374f3d365e4d4cb", (err, authData) => {
 		if (err) {
 			console.log("errror auth");
@@ -154,14 +170,17 @@ app.get("/login/test_user", verifyToken, (req, res) => {
 
 });
 
+
+
+//****Skapa test ******
 //verify verifyToken
 function verifyToken(req, res, next) {
 	//get auth header val
 	// const bearerHeader = req.headers["authorization"];
 	const bearerHeader = globalToken;
-	console.log("*bearerHeader*");
-	console.log(bearerHeader);
-	console.log("*bearerHeader*");
+	// console.log("*bearerHeader*");
+	// console.log(bearerHeader);
+	// console.log("*bearerHeader*");
 	// check berarer
 	if (typeof bearerHeader !== "undefined") {
 		req.token = bearerHeader;
@@ -204,68 +223,61 @@ function verifyToken(req, res, next) {
 
 
 
-
-
-app.get('/', function(req, res, next) {
-    const data = {
-            title: 'Me',
-            body: 'Hejsan! Jag har valt REACT som mitt ramverk och tror det kommer bli en rolig samt lärorik upplevelse!'
-    };
-
-    res.json(data);
-});
-
-// Add a route
-app.post("/logg", (req, res) => {
-  console.log("----------------");
-  console.log(req.body);
-  console.log("----------------");
-
-  res.end("string");
-
-});
-
-
-// Add a route
-app.get("/logg", (req, res) => {
-  console.log("----------------");
-  console.log("req.body");
-  console.log("----------------");
-
-  res.end("string-trosa");
-
-});
-
-
-
-// Testing routes with method
-app.get("/user", (req, res) => {
-    console.log(req.body);
-    res.json({
-        data: {
-            msg: "Got a GET request, sending back default 200"
-        }
-    });
-});
-
-app.post("/user", (req, res) => {
-    console.log(req.body);
-    res.status(201).json({
-        data: {
-            msg: "Got a POST request, sending back 201 Created"
-        }
-    });
-});
-
-app.put("/user", (req, res) => {
-    // PUT requests should return 204 No Content
-    res.status(204).send();
-});
-
-app.delete("/user", (req, res) => {
-    // DELETE requests should return 204 No Content
-    res.status(204).send();
-});
+//
+//
+//
+//
+// // Add a route
+// app.post("/logg", (req, res) => {
+//   console.log("----------------");
+//   console.log(req.body);
+//   console.log("----------------");
+//
+//   res.end("string");
+//
+// });
+//
+//
+// // Add a route
+// app.get("/logg", (req, res) => {
+//   console.log("----------------");
+//   console.log("req.body");
+//   console.log("----------------");
+//
+//   res.end("string-trosa");
+//
+// });
+//
+//
+//
+// // Testing routes with method
+// app.get("/user", (req, res) => {
+//     console.log(req.body);
+//     res.json({
+//         data: {
+//             msg: "Got a GET request, sending back default 200"
+//         }
+//     });
+// });
+//
+// app.post("/user", (req, res) => {
+//     console.log(req.body);
+//     res.status(201).json({
+//         data: {
+//             msg: "Got a POST request, sending back 201 Created"
+//         }
+//     });
+// });
+//
+// app.put("/user", (req, res) => {
+//     // PUT requests should return 204 No Content
+//     res.status(204).send();
+// });
+//
+// app.delete("/user", (req, res) => {
+//     // DELETE requests should return 204 No Content
+//     res.status(204).send();
+// });
 
 
 
@@ -298,9 +310,9 @@ app.delete("/user", (req, res) => {
 // This is middleware called for all routes.
 // Middleware takes three parameters.
 app.use((req, res, next) => {
-    // console.log(req.method);
-    // console.log(req.path);
-    // // console.log("*middleware*");
+    console.log(req.method);
+    console.log(req.path);
+    // console.log("*middleware*");
     next();
 });
 

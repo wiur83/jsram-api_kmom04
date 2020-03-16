@@ -34,24 +34,6 @@ router.get("/week/:id", (req, res) => {
     });
 });
 
-// router.get("/week/:id", (req, res) => {
-//     // console.log(req.params.id);
-//
-//     db.each("SELECT * FROM reports WHERE week = ?",
-//     req.params.id,(err, row) => {
-//   	if (err) {
-//   		console.log(err);
-//       res.sendStatus(403);
-//   	} else {
-//       console.log(row);
-//       const data = {
-//               title: row.title,
-//               text: row.text
-//       };
-//       res.json(data);
-//   	}
-//     });
-// });
 
 
 // Add a route
@@ -115,84 +97,78 @@ router.post("/", (req, res) => {
 
 
 
-
-//****************
-//post
-//****************
-router.post("/yo", (req, res) => {
-    //Sparar i databasen
-    const sqlite3 = require('sqlite3').verbose();
-    const db = new sqlite3.Database('./db/texts.sqlite');
-
-    db.run("INSERT INTO users (email, password) VALUES (?, ?)",
-      "user@example.com",
-      "superlonghashedpasswordthatwewillseehowtohashinthenextsection", (err) => {
-      if (err) {
-          res.json({
-              data: {
-                  msg: "un-successfully"
-              }
-          });
-      }
-
-      res.json({
-          data: {
-              msg: "successfully"
-          }
-      });
-    });
-
-});
-
-
-router.post("/spara", (req, res) => {
-  //Krypterar lösen
-  const bcrypt = require('bcryptjs');
-  const saltRounds = 10;
-  const myPlaintextPassword = 'longandhardP4$$w0rD';
-
-  bcrypt.hash(myPlaintextPassword, saltRounds, function(err, hash) {
-    // spara lösenord i databasen.
-  });
-
-    //Sparar i databasen
-    const sqlite3 = require('sqlite3').verbose();
-    const db = new sqlite3.Database('./db/texts.sqlite');
-
-    db.run("INSERT INTO users (email, password) VALUES (?, ?)",
-      "user@example.com",
-      "superlonghashedpasswordthatwewillseehowtohashinthenextsection", (err) => {
-      if (err) {
-          res.json({
-              data: {
-                  msg: "un-successfully"
-              }
-          });
-      }
-
-      res.json({
-          data: {
-              msg: "successfully"
-          }
-      });
-    });
-
-});
+//
+// //****************
+// //post
+// //****************
+// router.post("/yo", (req, res) => {
+//     //Sparar i databasen
+//     const sqlite3 = require('sqlite3').verbose();
+//     const db = new sqlite3.Database('./db/texts.sqlite');
+//
+//     db.run("INSERT INTO users (email, password) VALUES (?, ?)",
+//       "user@example.com",
+//       "superlonghashedpasswordthatwewillseehowtohashinthenextsection", (err) => {
+//       if (err) {
+//           res.json({
+//               data: {
+//                   msg: "un-successfully"
+//               }
+//           });
+//       }
+//
+//       res.json({
+//           data: {
+//               msg: "successfully"
+//           }
+//       });
+//     });
+//
+// });
 
 
-
+// router.post("/spara", (req, res) => {
+//   //Krypterar lösen
+//   const bcrypt = require('bcryptjs');
+//   const saltRounds = 10;
+//   const myPlaintextPassword = 'longandhardP4$$w0rD';
+//
+//   bcrypt.hash(myPlaintextPassword, saltRounds, function(err, hash) {
+//     // spara lösenord i databasen.
+//   });
+//
+//     //Sparar i databasen
+//     const sqlite3 = require('sqlite3').verbose();
+//     const db = new sqlite3.Database('./db/texts.sqlite');
+//
+//     db.run("INSERT INTO users (email, password) VALUES (?, ?)",
+//       "user@example.com",
+//       "superlonghashedpasswordthatwewillseehowtohashinthenextsection", (err) => {
+//       if (err) {
+//           res.json({
+//               data: {
+//                   msg: "un-successfully"
+//               }
+//           });
+//       }
+//
+//       res.json({
+//           data: {
+//               msg: "successfully"
+//           }
+//       });
+//     });
+//
+// });
+//
 
 
 
 
 
-router.get('/test', function(req, res) {
-  var string = encodeURIComponent('something that would break');
-      res.params.test = "test1";
-      req.params.test = "test2";
 
-  res.redirect('/reports');
-});
+
+
 
 
 

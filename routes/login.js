@@ -199,30 +199,30 @@ router.post("/create", (req, res) => {
 
 
 
-// Add a route
-router.get("/login", (req, res) => {
-  console.log(req.body);
-
-	res.json({
-			data: {
-					msg: "user found GET"
-			}
-	});
-});
-
-
-// Add a route
-router.post("/login", (req, res) => {
-  console.log(req.body);
-
-    res.json({
-        data: {
-            msg: "user found POST"
-        }
-    });
-});
-
-
+// // Add a route
+// router.get("/login", (req, res) => {
+//   console.log(req.body);
+//
+// 	res.json({
+// 			data: {
+// 					msg: "user found GET"
+// 			}
+// 	});
+// });
+//
+//
+// // Add a route
+// router.post("/login", (req, res) => {
+//   console.log(req.body);
+//
+//     res.json({
+//         data: {
+//             msg: "user found POST"
+//         }
+//     });
+// });
+//
+//
 
 
 
