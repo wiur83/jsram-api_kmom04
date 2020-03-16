@@ -1,0 +1,18 @@
+checks:
+    javascript: true
+
+build:
+    dependencies:
+        before:
+            # - npm install istanbul   # or add it as part of your package.json
+            -
+                command: 'mkdir build'
+
+    tests:
+
+        override:
+            -
+                command: 'npm run mocha'
+                coverage:
+                    file: 'coverage/clover.xml'
+                    format: 'clover'
