@@ -1,6 +1,7 @@
 build:
   environment:
     variables:
+      #test
       JWT_SECRET: secretkeye8600f5a58e83c4398e83d582137e83798789864276c35dff374f3d365e4d4cb
   nodes:
     coverage:
