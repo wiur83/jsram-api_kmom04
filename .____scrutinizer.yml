@@ -1,0 +1,23 @@
+checks:
+    javascript:
+        no_var: true
+        no_else_return: true
+        eqeqeq: true
+
+build:
+    nodes:
+        analysis:
+            tests:
+                override:
+                    - js-scrutinizer-run
+        tests: true
+    dependencies:
+        before:
+            - npm install istanbul mocha chai
+    tests:
+        override:
+            -
+                command: 'NODE_ENV=development ./node_modules/.bin/istanbul cover --report clover ./node_modules/.bin/_mocha --'
+                coverage:
+                    file: 'coverage/clover.xml'
+                    format: 'clover'
