@@ -4,7 +4,9 @@ checks:
 build:
     dependencies:
         before:
-            - npm install istanbul   # or add it as part of your package.json
+            # - npm install istanbul   # or add it as part of your package.json
+            -
+                command: 'mkdir build'
 
     tests:
 
