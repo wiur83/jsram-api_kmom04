@@ -29,19 +29,25 @@ router.post("/create_user", (req, res) => {
 	db.each("SELECT COUNT(*) AS total FROM users WHERE email = ?",
   req.body.email,(err, row) => {
 	if (row.total == 1) {
-		console.log("user exist");
+		// console.log("user exist");
+		//Kolla här
+		res.json({
+				data: {
+						msg: "user exist"
+				}
+		});
 	} else {
 		db.run("INSERT INTO users (name, email, password, year, month, day) VALUES (?, ?, ?, ?, ?, ?)",
 				req.body.name,req.body.email,req.body.password,req.body.year,req.body.month,req.body.day, (err) => {
 				if (err) {
-					console.log("error");
+					// console.log("error");
 					res.json({
 							data: {
 									msg: "POST user NOT created"
 							}
 					});
 				}
-				console.log("no error");
+				// console.log("no error");
 				res.json({
 						data: {
 								msg: "POST user created"
@@ -64,22 +70,22 @@ router.post("/login_user", (req, res) => {
 	db.each("SELECT COUNT(*) AS total FROM users WHERE (email, password) = (?,?)",
   req.body.email,req.body.password,(err, row) => {
 	if (row.total == 1) {
-		console.log("yes, user exist");
+		// console.log("yes, user exist");
 		const user = {
 			email: req.body.email,
 			password: req.body.password
 		}
 		jwt.sign({user}, "secretkeye8600f5a58e83c4398e83d582137e83798789864276c35dff374f3d365e4d4cb", (err, token) => {
-			console.log("token1");
-			console.log(token);
-			console.log("token1");
+			// console.log("token1");
+			// console.log(token);
+			// console.log("token1");
 			globalToken = token;
 			res.json({
 				token
 			});
 		});
 	} else {
-		console.log("user does NOT exist");
+		// console.log("user does NOT exist");
 		res.json({
 			msg: "erro"
 		});

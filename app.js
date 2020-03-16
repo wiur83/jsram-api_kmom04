@@ -79,14 +79,19 @@ app.get('/test_redirect', function(req, res) {
 //****Skapa test ******
 //Reggar användare
 app.post("/register", (req, res) => {
-  console.log("----------------");
-	console.log("*create_user PSOT2*");
-  console.log(req.body);
-  console.log("----------------");
+  // console.log("----------------");
+	// console.log("*create_user PSOT2*");
+  // console.log(req.body);
+  // console.log("----------------");
 	db.each("SELECT COUNT(*) AS total FROM users WHERE email = ?",
   req.body.email,(err, row) => {
 	if (row.total == 1) {
-		console.log("user exist");
+    //Kolla här
+    res.json({
+        data: {
+            msg: "User already exist"
+        }
+    });
 	} else {
 		db.run("INSERT INTO users (name, email, password, year, month, day) VALUES (?, ?, ?, ?, ?, ?)",
 				req.body.name,req.body.email,req.body.password,req.body.year,req.body.month,req.body.day, (err) => {
