@@ -1,2 +1,3 @@
 "pretest": "bash db/reset_test_db.bash",
 "posttest": "npm run eslint",
+"test": "nyc --reporter=html --reporter=text --reporter=clover mocha 'test/**/*.js'",

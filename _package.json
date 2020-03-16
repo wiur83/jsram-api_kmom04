@@ -1,0 +1,48 @@
+{
+  "name": "me-api",
+  "version": "1.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc --reporter=html --reporter=text --reporter=clover mocha 'test/**/*.js'",
+    "mocha": "nyc --all mocha --watch 'test/reports/report_integration.js' test/reports/test2.js",
+    "test-scrutinizer": "nyc --all mocha 'test/reports/report_integration.js'",
+    "start": "node app.js",
+    "stop": "taskkill -F -IM node.exe",
+    "production": "NODE_ENV='production' node app.js",
+    "productionz": "NODE_ENV='production' && node app.js",
+    "eslint": "eslint .",
+    "report-coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "report-codecov": "nyc report --reporter=lcov > coverage.lcov && codecov",
+    "clean": "rm -rf npm-debug.log coverage .nyc_output",
+    "preclean-all": "npm run clean",
+    "clean-all": "rm -rf node_modules"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.9.1",
+    "path": "^0.12.7",
+    "sqlite3": "^4.1.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "codecov": "^3.1.0",
+    "coveralls": "^3.0.2",
+    "eslint": "^5.16.0",
+    "eslint-plugin-react": "^7.19.0",
+    "istanbul": "^0.4.5",
+    "javascript-style-guide": "^0.9.10",
+    "mocha": "^5.2.0",
+    "nodemon": "^2.0.2",
+    "nyc": "^13.3.0"
+  },
+  "keywords": [],
+  "description": ""
+}
